@@ -1,3 +1,1 @@
-Frontend: HTML, CSS, JavaScript 
-Backend: Xano
-link: https://chanileto.github.io/Xano-PolovniAutomobili/
+Frontend: HTML, CSS, JavaScript.  Backend: Xano.  Link: https://chanileto.github.io/Xano-PolovniAutomobili/
