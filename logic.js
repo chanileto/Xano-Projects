@@ -1,8 +1,8 @@
 let apiMainURL = "https://x8ki-letl-twmt.n7.xano.io/api:8ZImpl5O";				
 let loader = document.querySelector('.loader-overlay')
 
-if(document.getElementById('registerBtn')) {									
-	document.getElementById('registerBtn').onclick = function(e) {				
+if (document.getElementById('registerBtn')) {									
+	document.getElementById('registerBtn').onclick = function (e) {				
 		e.preventDefault();														
 
 		let name = document.getElementById('name').value;
@@ -29,30 +29,26 @@ if(document.getElementById('registerBtn')) {
 				'Content-Type': 'application/json'
 			},																	
 			body: JSON.stringify(requestBody)									
+
 		})																			
+		.then(response => response.json())  // Parsiraj JSON!
 		.then(data => {
-			
-			if(data.authToken){
+			if (data.authToken) {
 				localStorage.setItem('authToken', data.authToken);			
-																			
 				window.location.href = 'novi_oglas.html';					
+			} else {
+				alert("Registration failed! Please check your details.");  
 			}
 
 			loader.style.display = 'none';							
+		})
+		.catch(error => {
+			console.error("Error during registration.", error);
+			alert("Error during registration. Please try again!");
+			loader.style.display = 'none';
 		});													
 	};															
 }
-
-
-if(document.getElementById('odjaviSe')) {
-	document.getElementById('odjaviSe').onclick = function(e) {				
-		e.preventDefault();
-
-		localStorage.clear();
-		window.location.href = 'index.html';							
-	}
-}
-
 
 if(document.getElementById('noviOglasBtn')) {							
 	document.getElementById('noviOglasBtn').onclick = function(e) {
@@ -86,7 +82,7 @@ if(document.getElementById('noviOglasBtn')) {
 		})
 		.then(response => response.json())
 		.then(data => {
-			alert('Oglas uspešno dodat. Čeka se odobravanje administratora.');			
+			alert('Your listing has been successfully added and is awaiting admin approval.');			
 			location.reload();														
 			loader.style.display = 'none';
 		});
@@ -130,8 +126,8 @@ if(document.getElementById('loginBtn')) {
 
 
 if (localStorage.getItem('authToken')) {													
-	document.getElementById("navigation").innerHTML = `<a href="novi_oglas.html" class="btn btn-warning">Dodaj oglas</a>
-														<a href="#" id="odjaviSe" class="btn btn-info">Odjavi se</a>`
+	document.getElementById("navigation").innerHTML = `<a href="novi_oglas.html" class="btn btn-warning">Add New Listing</a>
+														<a href="#" id="odjaviSe" class="btn btn-info">Log Out</a>`
 
 	document.getElementById('odjaviSe').onclick = function(e) {
 		e.preventDefault();
@@ -164,9 +160,9 @@ if(document.getElementById('sviOglasi')) {
 					<div class="car-item-wrapper">										
 						<img src="${car.car_image.url}?tpl=big" alt="${car.marka}">
 						<h4>${car.marka}</h4>
-						<p>Cijena: ${car.price} €</p>
-						<p>Godiste: ${car.year}</p>
-						<a class="btn btn-warning" href="car.html?id=${car.id}">Vidi više</a>
+						<p>Price: ${car.price} $</p>
+						<p>Car Model Year: ${car.year}</p>
+						<a class="btn btn-warning" href="car.html?id=${car.id}">View More</a>
 					</div>
 				`;
 
@@ -208,11 +204,11 @@ if(document.getElementById('appendImage')) {
 		if (contentContainer) {												
 			contentContainer.innerHTML = `									
 				<h4>${car.marka}</h4>
-				<p>Cijena: ${car.price} €</p>
-				<p>Godiste: ${car.year}</p>
-				<p>Gorivo: ${car.fuel}</p>
-				<p>Karoserija: ${car.karoserija}</p>
-				<p>Kontakt telefon: ${car._user.phone}</p>
+				<p>Price: ${car.price} $</p>
+				<p>Car Model Year: ${car.year}</p>
+				<p>Fuel: ${car.fuel}</p>
+				<p>Car Body: ${car.karoserija}</p>
+				<p>Phone Number: ${car._user.phone}</p>
 			`;
 			
 		} else {
@@ -276,9 +272,9 @@ if(document.getElementById('pretraziBtn')) {
 				<div class="car-item-wrapper">										
 					<img src="${car.car_image.url}?tpl=big" alt="${car.marka}">
 					<h4>${car.marka}</h4>
-					<p>Cijena: ${car.price} €</p>
-					<p>Godiste: ${car.year}</p>
-					<a class="btn btn-warning" href="car.html?id=${car.id}">Vidi više</a>
+					<p>Price: ${car.price} $</p>
+					<p>Car Model Year: ${car.year}</p>
+					<a class="btn btn-warning" href="car.html?id=${car.id}">View More</a>
 				</div>
 			`;
 
