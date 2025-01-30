@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-    <title>Novi oglas</title>
+    <title>New Car Listing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -22,23 +22,23 @@
 
     <div class="container">
         <nav class="navbar navbar-light bg-light justify-content-between">
-            <a href="index.html" class="navbar-brand"><img src="logo.png" width="35" height="35"> PolovniAutomobili</a>
+            <a href="index.html" class="navbar-brand"><img src="logo.png" width="35" height="35"> Second-Hand Cars</a>
 
             <div id="navigation">
-                <a href="#" id="odjaviSe" class="btn btn-info">Odjavi se</a>
+                <a href="#" id="odjaviSe" class="btn btn-info">Log Out</a>
             </div>
         </nav>
     </div>
 
 	<div class="container">
         <form id="noviOglasForm">
-            <h3>Dodaj novi oglas</h3>
+            <h3>Add New Listing</h3>
             <br>
 
             <div class="form-group">
-                <label for="marka">Marke</label>
+                <label for="marka">Car Make</label>
                 <select id="marka" class="form-control">
-                    <option selected disabled>Odaberi marku</option>
+                    <option selected disabled>Select Car Make</option>
                     <option value="BMW">BMW</option>
                     <option value="Mercedes-Benz">Mercedes-Benz</option>
                     <option value="Porsche">Porsche</option>
@@ -47,32 +47,34 @@
             </div>
 
             <div class="form-group">
-                <label for="price">Cijena</label>
-                <input type="number" class="form-control" id="price" placeholder="Cijena (€)">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" placeholder="Price ($)">
             </div>
 
             <div class="form-group">
-                <label for="fuel">Gorivo</label>
+                <label for="fuel">Fuel</label>
                 <select id="fuel" class="form-control">
-                    <option selected disabled>Odaberi gorivo</option>
-                    <option value="Benzin">Benzin</option>
-                    <option value="Dizel">Dizel</option>
+                    <option selected disabled>Select Fuel</option>
+                    <option value="Gas">Gas</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Diessel">Diessel</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="year">Godište</label>
-                <input type="number" class="form-control" id="year" placeholder="Godina">
+                <label for="year">Car Model Year</label>
+                <input type="number" class="form-control" id="year" placeholder="Car Model Year">
             </div>
 
             <div class="form-group">
-                <label for="karoserija">Karoserija</label>
+                <label for="karoserija">Car Body</label>
                 <select id="karoserija" class="form-control">
-                    <option selected disabled>Odaberi karoseriju</option>
-                    <option value="Limuzina">Limuzina</option>
-                    <option value="Karavan">Karavan</option>
-                    <option value="Kupe">Kupe</option>
-                    <option value="Kabriolet">Kabriolet</option>
+                    <option selected disabled>Select Car Body</option>
+                    <option value="Limousine">Limousine</option>
+                    <option value="Station Wagon">Station Wagon</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Convertible">Convertible</option>
                     <option value="SUV">SUV</option>
                 </select>
             </div>
@@ -80,11 +82,11 @@
             <input type="hidden" id="user_id" value="10">                       
 
             <div class="form-group">
-                <label for="image">Dodaj fotografiju</label>
+                <label for="image">Choose Image</label>
                 <input type="file" id="file" accept="image/*" required>
             </div>
 
-            <button type="submit" class="btn btn-primary" id="noviOglasBtn">Dodaj oglas</button>
+            <button type="submit" class="btn btn-primary" id="noviOglasBtn">Add New Listing</button>
         </form>
     </div>
 
